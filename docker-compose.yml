@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backend:
+    image: node:14
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: npm start
+
+  frontend:
+    image: node:14
+    ports:
+      - "80:80"
+    volumes:
+      - ./client:/app
+    working_dir: /app
+    command: npm start
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
